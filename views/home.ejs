@@ -1,0 +1,38 @@
+<!-- home.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Records</title>
+    <link href="home.css"  rel="stylesheet" type="text/css">
+</head>
+<body>
+    <h1 class="heading">DNS RECORDS</h1>
+    <form method="post" action="/delete" id="deleteForm">
+        
+        <div class="buttonCont">
+            <button type="submit" class="deleteButt">Delete</button>
+        </div>
+
+        <div class="recordCont">
+
+            <% records.map(record => { %>
+                <label>
+                    <div class="record">
+                        <p class="name"><%= record.name.split('.')[0] %></p>
+                        <input type="checkbox"  class="checkbox"  name="selectedRecordIds" value="<%= record.id %>"  onchange="toggleRecordClass(this)">
+                    </div>
+                </label>
+                <% }); %>
+        </div>
+       
+    </form>
+</body>
+<script>
+    function toggleRecordClass(checkbox) {
+        checkbox.parentNode.classList.toggle('selected', checkbox.checked);
+    }
+</script>
+</html>
