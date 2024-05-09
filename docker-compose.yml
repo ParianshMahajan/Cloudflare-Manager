@@ -7,7 +7,5 @@ services:
       context: .
       dockerfile: ./Dockerfile
     ports:
-      - "4018:3000"
-    volumes:
-      - "/home/Pariansh/frontend:/app/uploads"
+      - "4018:4018"
     restart: always
