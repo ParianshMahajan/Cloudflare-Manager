@@ -26,10 +26,11 @@ module.exports.deleteRecords = async(req, res) => {
     try {
 
         let data=req.body;
-        
         for(let i in data.selectedRecordIds){
             let recordId=data.selectedRecordIds[i];
             let deleteUrl=url+`/${recordId}`;
+            console.log(recordId);
+            console.log(deleteUrl);
             let response=await axios.delete(deleteUrl,{headers:headers});
             if (response.status === 200) {
                 console.log(`Deleted record with ID: ${recordId}`);
