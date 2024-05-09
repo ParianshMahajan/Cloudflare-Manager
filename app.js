@@ -8,7 +8,7 @@ dotenv.config({ path: "./config.env" });
 
 
 var cors = require('cors');
-const { displayRecords, deleteRecords } = require('./Controller');
+const { displayRecords, deleteRecords, createRecord } = require('./Controller');
 app.use(cors());
 
 app.set("view engine", "ejs");
@@ -22,6 +22,7 @@ app.use(express.static(path.join(__dirname, "views")));
 
 
 app.get('/', displayRecords )
+app.post('/create', createRecord )
 app.post('/delete', deleteRecords )
 
 
